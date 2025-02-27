@@ -58,7 +58,7 @@ def main():
             resume_text = extract_text_from_pdf(uploaded_file)
         
         cleaned_resume = clean_resume(resume_text)
-        input_features = tfidf_vectorizer.transform([cleaned_resume])
+        # input_features = tfidf_vectorizer.transform([cleaned_resume])
         # prediction_id = clf.predict(input_features)[0]
 
         category_mapping = {
