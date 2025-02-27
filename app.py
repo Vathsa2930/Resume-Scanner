@@ -24,7 +24,7 @@ nltk.download('punkt')
 nltk.download('stopwords')
 
 # Load models
-clf = pickle.load(open('clf.pkl','rb'))
+# clf = pickle.load(open('clf.pkl','rb'))
 tfidf_vectorizer = pickle.load(open('tfidf.pkl','rb'))
 
 def clean_resume(resume_text):
@@ -64,38 +64,38 @@ def main():
         
         cleaned_resume = clean_resume(resume_text)
         input_features = tfidf_vectorizer.transform([cleaned_resume])
-        prediction_id = clf.predict(input_features)[0]
+        # prediction_id = clf.predict(input_features)[0]
 
                 # Mapping of category IDs to names
-        category_mapping = {
-            15: "Java Developer",
-            23: "Testing",
-            8: "DevOps Engineer",
-            20: "Python Developer",
-            24: "Web Designing",
-            12: "HR",
-            13: "Hadoop",
-            3: "Blockchain",
-            10: "ETL Developer",
-            18: "Operations Manager",
-            6: "Data Science",
-            22: "Sales",
-            16: "Mechanical Engineer",
-            1: "Arts",
-            7: "Database",
-            11: "Electrical Engineering",
-            14: "Health and fitness",
-            19: "PMO",
-            4: "Business Analyst",
-            9: "DotNet Developer",
-            2: "Automation Testing",
-            17: "Network Security Engineer",
-            21: "SAP Developer",
-            5: "Civil Engineer",
-            0: "Advocate",
-        }
+        # category_mapping = {
+        #     15: "Java Developer",
+        #     23: "Testing",
+        #     8: "DevOps Engineer",
+        #     20: "Python Developer",
+        #     24: "Web Designing",
+        #     12: "HR",
+        #     13: "Hadoop",
+        #     3: "Blockchain",
+        #     10: "ETL Developer",
+        #     18: "Operations Manager",
+        #     6: "Data Science",
+        #     22: "Sales",
+        #     16: "Mechanical Engineer",
+        #     1: "Arts",
+        #     7: "Database",
+        #     11: "Electrical Engineering",
+        #     14: "Health and fitness",
+        #     19: "PMO",
+        #     4: "Business Analyst",
+        #     9: "DotNet Developer",
+        #     2: "Automation Testing",
+        #     17: "Network Security Engineer",
+        #     21: "SAP Developer",
+        #     5: "Civil Engineer",
+        #     0: "Advocate",
+        # }
 
-        predicted_category = category_mapping.get(prediction_id, "Unknown")
+        # predicted_category = category_mapping.get(prediction_id, "Unknown")
 
 
         input_prompt=f"""
@@ -114,7 +114,7 @@ I want the response in one single string having the below structure :-
 
 
 ## CV Match : "%" \n
-### Category of Resume :--> `{predicted_category}`
+
 \n
 ## **`MissingKeywords:`** \n  
 1. keyword 1, \n
