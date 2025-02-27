@@ -14,7 +14,7 @@ load_dotenv() ## load all our environment variables
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-def get_gemini_repsonse(input):
+def get_gemini_response(input):
     model=genai.GenerativeModel('gemini-pro')
     response=model.generate_content(input)
     return response.text
@@ -154,7 +154,7 @@ I want the response in one single string having the below structure :-
         submit = st.button("Analyze Resume with Job Description")
         if submit:
             if uploaded_file is not None:
-                response=get_gemini_repsonse(input_prompt)
+                response=get_gemini_response(input_prompt)
                 st.subheader(response)
 
 
