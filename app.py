@@ -154,8 +154,12 @@ I want the response in one single string having the below structure :-
         submit = st.button("Analyze Resume with Job Description")
         if submit:
             if uploaded_file is not None:
-                response=get_gemini_repsonse(input_prompt)
-                st.subheader(response)
+                try:
+                    response = model.generate_content(input_text)
+                except Exception as e:
+                    print(f"Error generating response: {e}")
+                    response=get_gemini_repsonse(input_prompt)
+                    st.subheader(response)
 
 
 
