@@ -1,5 +1,4 @@
 import streamlit as st
-import google.generativeai as genai
 from google import genai
 
 import os
@@ -14,7 +13,7 @@ from sklearn.ensemble import RandomForestClassifier  # Replace with your specifi
 
 load_dotenv() ## load all our environment variables
 
-genai_client = genai.Client(api_key="AIzaSyDrKFzPqIQiKgZafZ65aEnaX5B0q87cDZ4")
+genai_client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
 def get_gemini_response(input_text):
     response = genai_client.models.generate_content(
