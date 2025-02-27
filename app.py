@@ -28,8 +28,8 @@ nltk.download('punkt')
 nltk.download('stopwords')
 
 # Load models
-clf = pickle.load(open('clf.pkl','rb'))
-tfidf_vectorizer = pickle.load(open('tfidf.pkl','rb'))
+# clf = pickle.load(open('clf.pkl','rb'))
+# tfidf_vectorizer = pickle.load(open('tfidf.pkl','rb'))
 
 def clean_resume(resume_text):
     clean_text = re.sub('http\S+\s*', ' ', resume_text)
@@ -60,7 +60,7 @@ def main():
         
         cleaned_resume = clean_resume(resume_text)
         input_features = tfidf_vectorizer.transform([cleaned_resume])
-        prediction_id = clf.predict(input_features)[0]
+        # prediction_id = clf.predict(input_features)[0]
 
         category_mapping = {
             15: "Java Developer", 23: "Testing", 8: "DevOps Engineer", 20: "Python Developer", 24: "Web Designing", 
@@ -70,7 +70,7 @@ def main():
             17: "Network Security Engineer", 21: "SAP Developer", 5: "Civil Engineer", 0: "Advocate"
         }
 
-        predicted_category = category_mapping.get(prediction_id, "Unknown")
+        # predicted_category = category_mapping.get(prediction_id, "Unknown")
 
         input_prompt = f"""
         Hey, act like a skilled ATS (Applicant Tracking System) with deep understanding of the tech field, software engineering, data science, 
@@ -82,7 +82,7 @@ def main():
         Job Description: {jd}
         """
 
-        st.write("Predicted Category:", predicted_category)
+        # st.write("Predicted Category:", predicted_category)
         submit = st.button("Analyze Resume with Job Description")
         
         if submit:
