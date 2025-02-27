@@ -159,7 +159,7 @@ I want the response in one single string having the below structure :-
                 except Exception as e:
                     print(f"Error generating response: {e}")
                     response=get_gemini_repsonse(input_prompt)
-                    st.subheader(response)
+                st.subheader(response)
 
 
 
