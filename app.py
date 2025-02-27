@@ -150,7 +150,7 @@ I want the response in one single string having the below structure :-
  //Explain how applicante can improve to match the job description
 """
 
-        st.write("Predicted Category:", predicted_category)
+        # st.write("Predicted Category:", predicted_category)
         submit = st.button("Analyze Resume with Job Description")
         if submit:
             if uploaded_file is not None:
