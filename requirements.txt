@@ -3,7 +3,5 @@ regex
 nltk
 scikit-learn
 pdfplumber
-google.generativeai
 python-dotenv
-
-
+google-genai
